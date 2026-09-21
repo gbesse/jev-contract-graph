@@ -1,0 +1,54 @@
+[
+  {
+    "id": "same",
+    "input": {
+      "task": "contracts",
+      "left": "BTC exceeds 120000 USD before December 31. Atlas index. Binary resolution only; no cancellation.",
+      "right": "BTC exceeds 120000 USD before November 30. Atlas index. Binary resolution only; no cancellation."
+    },
+    "expected": {
+      "event": "same",
+      "resolution": "same",
+      "exceptions": "compatible"
+    }
+  },
+  {
+    "id": "source",
+    "input": {
+      "task": "contracts",
+      "left": "BTC exceeds 120000 USD. Atlas index.",
+      "right": "BTC exceeds 120000 USD. Orion index."
+    },
+    "expected": {
+      "event": "same",
+      "resolution": "different",
+      "exceptions": "unknown"
+    }
+  },
+  {
+    "id": "asset",
+    "input": {
+      "task": "contracts",
+      "left": "BTC exceeds 120000 USD. Atlas index.",
+      "right": "ETH exceeds 120000 USD. Atlas index."
+    },
+    "expected": {
+      "event": "different",
+      "resolution": "same",
+      "exceptions": "unknown"
+    }
+  },
+  {
+    "id": "unknown",
+    "input": {
+      "task": "contracts",
+      "left": "The price exceeds the target.",
+      "right": "Will it exceed the target?"
+    },
+    "expected": {
+      "event": "unknown",
+      "resolution": "unknown",
+      "exceptions": "unknown"
+    }
+  }
+]

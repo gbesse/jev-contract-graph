@@ -1,0 +1,21 @@
+{
+  "name": "jev-contract-graph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Conditional payoff proofs for prediction-market contracts with optional Jev semantic review.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gbesse/jev-contract-graph.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/server.js && node --check public/app.js",
+    "eval": "node src/evaluate.js"
+  }
+}
