@@ -1,0 +1,354 @@
+{
+  "mode": "live",
+  "generatedAt": "2026-10-02T15:17:57.474Z",
+  "datasetNotice": "Les fixtures fournies sont synthétiques et réduites. Ces scores ne démontrent ni calibration financière ni état de l’art.",
+  "aggregate": {
+    "questions": 12,
+    "accuracy": 0.9166666666666666,
+    "multiclassBrier": 0.08405,
+    "threshold": 0.8,
+    "coverage": 0.8333333333333334,
+    "selectiveAccuracy": 1
+  },
+  "byQuestion": {
+    "event": {
+      "questions": 4,
+      "accuracy": 0.75,
+      "multiclassBrier": 0.23465,
+      "threshold": 0.8,
+      "coverage": 0.5,
+      "selectiveAccuracy": 1
+    },
+    "resolution": {
+      "questions": 4,
+      "accuracy": 1,
+      "multiclassBrier": 0.002199999999999999,
+      "threshold": 0.8,
+      "coverage": 1,
+      "selectiveAccuracy": 1
+    },
+    "exceptions": {
+      "questions": 4,
+      "accuracy": 1,
+      "multiclassBrier": 0.015299999999999998,
+      "threshold": 0.8,
+      "coverage": 1,
+      "selectiveAccuracy": 1
+    }
+  },
+  "rows": [
+    {
+      "id": "same",
+      "question": "event",
+      "expected": "same",
+      "choice": "same",
+      "probabilities": {
+        "unknown": 0,
+        "same": 0.99,
+        "different": 0.01
+      },
+      "confidence": 0.98
+    },
+    {
+      "id": "same",
+      "question": "resolution",
+      "expected": "same",
+      "choice": "same",
+      "probabilities": {
+        "unknown": 0,
+        "same": 1,
+        "different": 0
+      },
+      "confidence": 1
+    },
+    {
+      "id": "same",
+      "question": "exceptions",
+      "expected": "compatible",
+      "choice": "compatible",
+      "probabilities": {
+        "unknown": 0.1,
+        "compatible": 0.89,
+        "different": 0.01
+      },
+      "confidence": 0.84
+    },
+    {
+      "id": "source",
+      "question": "event",
+      "expected": "same",
+      "choice": "same",
+      "probabilities": {
+        "unknown": 0.04,
+        "same": 0.82,
+        "different": 0.14
+      },
+      "confidence": 0.73
+    },
+    {
+      "id": "source",
+      "question": "resolution",
+      "expected": "different",
+      "choice": "different",
+      "probabilities": {
+        "unknown": 0.02,
+        "same": 0,
+        "different": 0.98
+      },
+      "confidence": 0.97
+    },
+    {
+      "id": "source",
+      "question": "exceptions",
+      "expected": "unknown",
+      "choice": "unknown",
+      "probabilities": {
+        "unknown": 0.93,
+        "compatible": 0.03,
+        "different": 0.04
+      },
+      "confidence": 0.9
+    },
+    {
+      "id": "asset",
+      "question": "event",
+      "expected": "different",
+      "choice": "different",
+      "probabilities": {
+        "unknown": 0,
+        "same": 0.01,
+        "different": 0.99
+      },
+      "confidence": 0.98
+    },
+    {
+      "id": "asset",
+      "question": "resolution",
+      "expected": "same",
+      "choice": "same",
+      "probabilities": {
+        "unknown": 0.02,
+        "same": 0.98,
+        "different": 0
+      },
+      "confidence": 0.96
+    },
+    {
+      "id": "asset",
+      "question": "exceptions",
+      "expected": "unknown",
+      "choice": "unknown",
+      "probabilities": {
+        "unknown": 0.89,
+        "compatible": 0.08,
+        "different": 0.03
+      },
+      "confidence": 0.84
+    },
+    {
+      "id": "unknown",
+      "question": "event",
+      "expected": "unknown",
+      "choice": "same",
+      "probabilities": {
+        "unknown": 0.33,
+        "different": 0.01,
+        "same": 0.66
+      },
+      "confidence": 0.5
+    },
+    {
+      "id": "unknown",
+      "question": "resolution",
+      "expected": "unknown",
+      "choice": "unknown",
+      "probabilities": {
+        "unknown": 0.9400000000000001,
+        "different": 0,
+        "same": 0.06
+      },
+      "confidence": 0.9
+    },
+    {
+      "id": "unknown",
+      "question": "exceptions",
+      "expected": "unknown",
+      "choice": "unknown",
+      "probabilities": {
+        "unknown": 0.91,
+        "different": 0.05,
+        "compatible": 0.04
+      },
+      "confidence": 0.86
+    }
+  ],
+  "receipts": [
+    {
+      "id": "same",
+      "receipt": {
+        "provider": "typesafe",
+        "requestedModel": "jev-1.13.0",
+        "resolvedModel": "jev-1.13.0",
+        "answers": {
+          "event": {
+            "choice": "same",
+            "probabilities": {
+              "unknown": 0,
+              "same": 0.99,
+              "different": 0.01
+            },
+            "confidence": 0.98
+          },
+          "resolution": {
+            "choice": "same",
+            "probabilities": {
+              "unknown": 0,
+              "same": 1,
+              "different": 0
+            },
+            "confidence": 1
+          },
+          "exceptions": {
+            "choice": "compatible",
+            "probabilities": {
+              "unknown": 0.1,
+              "compatible": 0.89,
+              "different": 0.01
+            },
+            "confidence": 0.84
+          }
+        },
+        "latencyMs": 336,
+        "requestHash": "739b0ede4933b369d1a976aa0960a4d2823d267dd4371a8b15f295cac599b139",
+        "observedAt": "2026-10-02T15:17:56.695Z",
+        "notice": "Jugement sémantique à revoir. Ne certifie ni les clauses, ni la réalité de l’incident, ni une rentabilité."
+      }
+    },
+    {
+      "id": "source",
+      "receipt": {
+        "provider": "typesafe",
+        "requestedModel": "jev-1.13.0",
+        "resolvedModel": "jev-1.13.0",
+        "answers": {
+          "event": {
+            "choice": "same",
+            "probabilities": {
+              "unknown": 0.04,
+              "same": 0.82,
+              "different": 0.14
+            },
+            "confidence": 0.73
+          },
+          "resolution": {
+            "choice": "different",
+            "probabilities": {
+              "unknown": 0.02,
+              "same": 0,
+              "different": 0.98
+            },
+            "confidence": 0.97
+          },
+          "exceptions": {
+            "choice": "unknown",
+            "probabilities": {
+              "unknown": 0.93,
+              "compatible": 0.03,
+              "different": 0.04
+            },
+            "confidence": 0.9
+          }
+        },
+        "latencyMs": 228,
+        "requestHash": "1fc1599d1b86b241c9e0b99e9f2eff5bca977dcd2b98df6c6011b8ac81aee5ef",
+        "observedAt": "2026-10-02T15:17:56.923Z",
+        "notice": "Jugement sémantique à revoir. Ne certifie ni les clauses, ni la réalité de l’incident, ni une rentabilité."
+      }
+    },
+    {
+      "id": "asset",
+      "receipt": {
+        "provider": "typesafe",
+        "requestedModel": "jev-1.13.0",
+        "resolvedModel": "jev-1.13.0",
+        "answers": {
+          "event": {
+            "choice": "different",
+            "probabilities": {
+              "unknown": 0,
+              "same": 0.01,
+              "different": 0.99
+            },
+            "confidence": 0.98
+          },
+          "resolution": {
+            "choice": "same",
+            "probabilities": {
+              "unknown": 0.02,
+              "same": 0.98,
+              "different": 0
+            },
+            "confidence": 0.96
+          },
+          "exceptions": {
+            "choice": "unknown",
+            "probabilities": {
+              "unknown": 0.89,
+              "compatible": 0.08,
+              "different": 0.03
+            },
+            "confidence": 0.84
+          }
+        },
+        "latencyMs": 267,
+        "requestHash": "1007b8c484123ddbc6c74d131f3c24cb481e6dbfe520559ae8c1f6f34b9ce54c",
+        "observedAt": "2026-10-02T15:17:57.190Z",
+        "notice": "Jugement sémantique à revoir. Ne certifie ni les clauses, ni la réalité de l’incident, ni une rentabilité."
+      }
+    },
+    {
+      "id": "unknown",
+      "receipt": {
+        "provider": "typesafe",
+        "requestedModel": "jev-1.13.0",
+        "resolvedModel": "jev-1.13.0",
+        "answers": {
+          "event": {
+            "choice": "same",
+            "probabilities": {
+              "unknown": 0.33,
+              "different": 0.01,
+              "same": 0.66
+            },
+            "confidence": 0.5
+          },
+          "resolution": {
+            "choice": "unknown",
+            "probabilities": {
+              "unknown": 0.9400000000000001,
+              "different": 0,
+              "same": 0.06
+            },
+            "confidence": 0.9
+          },
+          "exceptions": {
+            "choice": "unknown",
+            "probabilities": {
+              "unknown": 0.91,
+              "different": 0.05,
+              "compatible": 0.04
+            },
+            "confidence": 0.86
+          }
+        },
+        "latencyMs": 284,
+        "requestHash": "697d97afc766434ece739c3ef37498d95066c6f2dd00574b936341dd882bcff6",
+        "observedAt": "2026-10-02T15:17:57.474Z",
+        "notice": "Jugement sémantique à revoir. Ne certifie ni les clauses, ni la réalité de l’incident, ni une rentabilité."
+      }
+    }
+  ],
+  "evaluationDate": "2026-10-02",
+  "datasetSha256": "2643a94f8802f5c0b6b3f71f0126b375057f642759b9cbe5c65b1fe8be2cae4e",
+  "protocol": "Four existing synthetic cases, three questions each, one call per case. No prompt or label changes after observing the results. Not a held-out benchmark."
+}

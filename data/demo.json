@@ -22,7 +22,9 @@
           "comparator": "gt",
           "threshold": 120000,
           "start": "2026-09-01T00:00:00Z",
-          "end": "2026-12-31T23:59:59Z"
+          "end": "2026-12-31T23:59:59Z",
+          "payoutCurrency": "USD",
+          "payoutPerShare": 1
         },
         "reviewed": true,
         "reviewEvidence": "Fixture synthétique revue : btc-dec",
@@ -38,7 +40,8 @@
                 "price": 0.54,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           },
           "no": {
             "observedAt": "2026-09-21T11:59:57Z",
@@ -51,7 +54,8 @@
                 "price": 0.5,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           }
         }
       },
@@ -69,7 +73,9 @@
           "comparator": "gt",
           "threshold": 120000,
           "start": "2026-09-01T00:00:00Z",
-          "end": "2026-11-30T23:59:59Z"
+          "end": "2026-11-30T23:59:59Z",
+          "payoutCurrency": "USD",
+          "payoutPerShare": 1
         },
         "reviewed": true,
         "reviewEvidence": "Fixture synthétique revue : btc-nov",
@@ -85,7 +91,8 @@
                 "price": 0.63,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           },
           "no": {
             "observedAt": "2026-09-21T11:59:57Z",
@@ -98,7 +105,8 @@
                 "price": 0.41,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           }
         }
       },
@@ -116,7 +124,9 @@
           "comparator": "gt",
           "threshold": 120000,
           "start": "2026-09-01T00:00:00Z",
-          "end": "2026-11-30T23:59:59Z"
+          "end": "2026-11-30T23:59:59Z",
+          "payoutCurrency": "USD",
+          "payoutPerShare": 1
         },
         "reviewed": true,
         "reviewEvidence": "Fixture synthétique revue : btc-other",
@@ -132,7 +142,8 @@
                 "price": 0.5,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           },
           "no": {
             "observedAt": "2026-09-21T11:59:57Z",
@@ -145,7 +156,8 @@
                 "price": 0.53,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           }
         }
       },
@@ -163,7 +175,9 @@
           "comparator": "gt",
           "threshold": 120000,
           "start": "2026-09-01T00:00:00Z",
-          "end": "2026-12-31T23:59:59Z"
+          "end": "2026-12-31T23:59:59Z",
+          "payoutCurrency": "USD",
+          "payoutPerShare": 1
         },
         "reviewed": true,
         "reviewEvidence": "Fixture synthétique revue : btc-terminal",
@@ -179,7 +193,8 @@
                 "price": 0.44,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           },
           "no": {
             "observedAt": "2026-09-21T11:59:57Z",
@@ -192,7 +207,8 @@
                 "price": 0.6,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           }
         }
       },
@@ -210,7 +226,9 @@
           "comparator": "gt",
           "threshold": 120000,
           "start": "2026-09-01T00:00:00Z",
-          "end": "2026-10-31T23:59:59Z"
+          "end": "2026-10-31T23:59:59Z",
+          "payoutCurrency": "USD",
+          "payoutPerShare": 1
         },
         "reviewed": false,
         "reviewEvidence": "",
@@ -226,7 +244,8 @@
                 "price": 0.56,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           },
           "no": {
             "observedAt": "2026-09-21T11:59:57Z",
@@ -239,7 +258,8 @@
                 "price": 0.49,
                 "size": 200
               }
-            ]
+            ],
+            "currency": "USD"
           }
         }
       }

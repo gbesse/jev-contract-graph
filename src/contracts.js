@@ -19,6 +19,7 @@ export function relation(a, b) {
   validateMarket(a); validateMarket(b);
   const x = a.normalized, y = b.normalized;
   if (!a.reviewed || !b.reviewed) return { kind: 'unverified', reason: 'Normalisation non revue : aucune preuve de relation.' };
+  if ([x,y].some(r=>r.payoutCurrency!=='USD'||r.payoutPerShare!==1)) return {kind:'unsupported',reason:'Déclarer explicitement un paiement binaire de 1 USD par part gagnante (payoutCurrency / payoutPerShare).'};
   for (const k of ['asset', 'source', 'currency', 'settlement', 'voidPolicy', 'kind', 'comparator']) {
     if (x[k] !== y[k]) return { kind: 'incompatible', reason: `Clauses différentes : ${k}.` };
   }
@@ -40,8 +41,8 @@ export function fill(asks, quantity) {
   list(asks, 'asks', 1000); number(quantity, 'quantity', 0.000001, 1e6);
   const levels = asks.map(l => ({ price: number(l.price, 'ask.price', 0.000001, 1), size: number(l.size, 'ask.size', 0, 1e9) })).sort((a,b) => a.price-b.price);
   let left = quantity, cost = 0;
-  for (const l of levels) { const take = Math.min(left, l.size); cost += take*l.price; left -= take; if (left < 1e-9) break; }
-  return { complete: left < 1e-9, cost: round(cost), filled: round(quantity-left), vwap: round(cost/(quantity-left || 1)) };
+  for (const l of levels) { const take = Math.min(left, l.size); cost += take*l.price; left -= take; if (left <= 0) break; }
+  return { complete: left <= 0, cost: Math.ceil(cost*1e6)/1e6, filled: round(quantity-left), vwap: round(cost/(quantity-left || 1)) };
 }
 
 export function analyzeContracts(input) {
@@ -65,15 +66,16 @@ export function analyzeContracts(input) {
         evidence:[a.reviewEvidence,b.reviewEvidence] };
       const books = [broad.quotes?.yes,narrow.quotes?.no];
       if (books.some(x=>!x)) { pairs.push({...base,status:'missing-quotes'}); continue; }
+      if (books.some(q=>q.currency!=='USD')) { pairs.push({...base,status:'unsupported-quotes'}); continue; }
       const times = books.map(q=>time(q.observedAt,'quote.observedAt'));
       if (times.some(t=>t>asOf || asOf-t>maxAgeMs) || Math.abs(times[0]-times[1])>maxSkewMs) { pairs.push({...base,status:'stale-quotes'}); continue; }
       if (asOf >= Math.min(time(a.normalized.end,'end'),time(b.normalized.end,'end'))) { pairs.push({...base,status:'expired'}); continue; }
       const fills=books.map(q=>fill(q.asks,quantity));
       if(fills.some(f=>!f.complete)){pairs.push({...base,status:'insufficient-depth',fills});continue;}
-      const cost=round(fills.reduce((s,f)=>s+f.cost,0));
-      // Round costs up to the micro-dollar, lower-bound P&L down.
-      const friction=Math.ceil(cost*(feeBps+bufferBps)/10000*1e6)/1e6;
-      const netFloor=Math.floor((quantity-cost-friction+1e-10)*1e6)/1e6;
+      const costUnits=fills.reduce((s,f)=>s+Math.round(f.cost*1e6),0),cost=costUnits/1e6;
+      // Integer micro-dollars: round each leg's cost up and the payout down.
+      const frictionUnits=Math.ceil(costUnits*(feeBps+bufferBps)/10000),friction=frictionUnits/1e6;
+      const netFloor=(Math.floor(quantity*1e6)-costUnits-frictionUnits)/1e6;
       pairs.push({...base,status:netFloor>0?'candidate':'no-edge',fills,cost,friction:round(friction),minimumPayout:quantity,netFloor,returnOnCost:round(netFloor/(cost+friction))});
     }
   }

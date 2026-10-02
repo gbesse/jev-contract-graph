@@ -13,4 +13,4 @@ Ne retenir l’intégration Jev que si elle améliore le compromis coût/erreur 
 
 ## Statut
 
-Moteur, interface, import/export et tests implémentés. Connecteur de découverte et adaptateur Jev implémentés ; disponibilité réseau/clé externe. Corpus réel annoté, évaluation live Jev, comparaison indépendante de modèles et validation prospective non réalisés.
+Moteur, interface, import/export et tests implémentés. Connecteur de découverte et adaptateur Jev implémentés ; disponibilité réseau/clé externe. Évaluation Jev réelle sur les quatre fixtures synthétiques réalisée le 2 octobre 2026 ([rapport](REVIEW-2026-10-02.md)). Corpus réel annoté, comparaison indépendante de modèles et validation prospective non réalisés.

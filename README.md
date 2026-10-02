@@ -26,11 +26,11 @@ Le scénario initial est entièrement fictif. Modifier les paramètres, inspecte
 
 Chaque marché contient : `id`, `title`, `rulesText`, `reviewed`, `reviewEvidence`, `normalized` et éventuellement `quotes.yes` / `quotes.no`.
 
-`normalized` précise `asset`, `source`, `currency`, `settlement`, `voidPolicy`, `kind`, `comparator`, `threshold`, `start`, `end`. `reviewed: true` est une **déclaration du préparateur des données**, pas une vérification cryptographique ou une validation par le modèle. `reviewEvidence` doit décrire les clauses et la revue qui justifient cette déclaration.
+`normalized` précise `asset`, `source`, `currency`, `settlement`, `voidPolicy`, `kind`, `comparator`, `threshold`, `start`, `end`, `payoutCurrency`, `payoutPerShare`. Le paiement pris en charge doit être explicitement déclaré : `payoutCurrency: "USD"`, `payoutPerShare: 1`. Les imports sans cette déclaration sont écartés. `reviewed: true` est une **déclaration du préparateur des données**, pas une vérification cryptographique ou une validation par le modèle. `reviewEvidence` doit décrire les clauses et la revue qui justifient cette déclaration.
 
 Le moteur prend en charge `kind: anytime` (franchissement à un moment de la fenêtre) et `terminal` (valeur à la fin), et les comparateurs `gt` / `gte`. Une implication est dérivée de seuils et fenêtres emboîtés avec mêmes sources et clauses. Deux observations terminales de dates différentes ne sont pas comparées. Le seul règlement pris en charge est binaire 0/1, `voidPolicy: binary-only` ; les annulations et remboursements exigent une extension du modèle d’états.
 
-Un carnet contient `observedAt` et `asks: [{price, size}]`. Les niveaux sont triés et consommés pour calculer le coût réel à la taille demandée. Les carnets futurs, trop vieux ou désynchronisés, les marchés échus et les profondeurs insuffisantes sont écartés. `feeBps` et `bufferBps` sont des hypothèses proportionnelles ; ils ne reproduisent pas le barème effectif d’une plateforme. Aucun routage d’ordre, aucune vente à découvert, aucun wallet, aucun profit garanti.
+Un carnet contient `currency: "USD"`, `observedAt` et `asks: [{price, size}]`. Les niveaux sont triés et consommés pour calculer le coût réel à la taille demandée. Les carnets futurs, trop vieux ou désynchronisés, les marchés échus et les profondeurs insuffisantes sont écartés. `feeBps` et `bufferBps` sont des hypothèses proportionnelles ; ils ne reproduisent pas le barème effectif d’une plateforme. Aucun routage d’ordre, aucune vente à découvert, aucun wallet, aucun profit garanti.
 
 
 ## Jev, en option
@@ -43,7 +43,7 @@ node --env-file=.env src/server.js
 
 La clé reste côté serveur. Les textes saisis sont envoyés à TypeSafe uniquement lorsque vous cliquez sur « Évaluer avec Jev ». La classification d’incident envoie aussi les noms des cibles proposées. Les jugements restent séparés de la validation des données : Jev ne certifie ni les clauses ni la réalité d’un incident, et ne modifie pas les analyses automatiquement.
 
-L’adaptateur utilise la [System One API](https://docs.typesafe.ai/api), avec `jev-1.13.0` par défaut. Les distributions sont validées ; les reçus incluent modèle demandé/résolu, empreinte de requête et latence. Une erreur ne devient jamais un résultat fictif. Aucun appel réel à Jev n’a été exécuté à la publication, faute de clé configurée.
+L’adaptateur utilise la [System One API](https://docs.typesafe.ai/api), avec `jev-1.13.0` par défaut. Les distributions sont validées ; les reçus incluent modèle demandé/résolu, empreinte de requête et latence. Une erreur ne devient jamais un résultat fictif. Des appels réels ont été exécutés le 2 octobre 2026 : voir la [revue et les résultats](docs/REVIEW-2026-10-02.md).
 
 ## Sources publiques
 

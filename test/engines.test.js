@@ -46,3 +46,17 @@ test('entrées non finies, identifiants dupliqués et dates sans fuseau rejetés
  const d=demo().contracts;d.quantity=NaN;assert.throws(()=>analyzeContracts(d));d.quantity=100;d.markets[1].id=d.markets[0].id;assert.throws(()=>analyzeContracts(d));assert.throws(()=>analyzeContracts({...demo().contracts,asOf:'2026-09-21'}));
  assert.throws(()=>analyzeContracts({...demo().contracts,asOf:'2026-02-30T12:00:00Z'}),/calendrier/);
 });
+test('paiement et devise explicites : aucun plancher implicite de 1 USD',()=>{
+ for(const patch of [{payoutPerShare:0.5},{payoutCurrency:'EUR'},{payoutPerShare:undefined}]){
+  const d=demo().contracts;Object.assign(d.markets[0].normalized,patch);assert.equal(analyzeContracts(d).candidates,0);
+ }
+ const d=demo().contracts;delete d.markets[0].quotes.yes.currency;assert.equal(analyzeContracts(d).candidates,0);assert.ok(analyzeContracts(d).pairs.some(p=>p.status==='unsupported-quotes'));
+});
+test('arrondis conservateurs et aucune tolérance de remplissage artificielle',()=>{
+ const price=.12345641,quantity=1;
+ assert.ok(fill([{price,size:1}],quantity).cost>=price*quantity);
+ assert.equal(fill([{price:.5,size:.9999999999}],1).complete,false);
+ const d=demo().contracts;d.markets=d.markets.slice(0,2);d.quantity=1;d.feeBps=0;d.bufferBps=0;
+ d.markets[0].quotes.yes.asks=[{price:.49999951,size:1}];d.markets[1].quotes.no.asks=[{price:.49999951,size:1}];
+ const p=analyzeContracts(d).pairs[0];assert.equal(p.cost,1);assert.equal(p.netFloor,0);assert.equal(p.status,'no-edge');
+});
