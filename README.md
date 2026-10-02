@@ -33,6 +33,14 @@ Le moteur prend en charge `kind: anytime` (franchissement à un moment de la fen
 Un carnet contient `currency: "USD"`, `observedAt` et `asks: [{price, size}]`. Les niveaux sont triés et consommés pour calculer le coût réel à la taille demandée. Les carnets futurs, trop vieux ou désynchronisés, les marchés échus et les profondeurs insuffisantes sont écartés. `feeBps` et `bufferBps` sont des hypothèses proportionnelles ; ils ne reproduisent pas le barème effectif d’une plateforme. Aucun routage d’ordre, aucune vente à découvert, aucun wallet, aucun profit garanti.
 
 
+## Exemple hors ligne · Offline example · Ejemplo sin conexión
+
+`npm run demo:stale` compare la fixture synthétique avec une copie dont un carnet est périmé. Le moteur exclut alors le candidat ; aucun ordre ni appel Jev n'est lancé. Cela illustre une règle de refus, sans prédire un gain réel.
+
+`npm run demo:stale` compares the synthetic fixture with a copy whose order book is stale. The engine then excludes the candidate; it places no order and makes no Jev call. This demonstrates a rejection rule, not a real return forecast.
+
+`npm run demo:stale` compara la fixture sintética con una copia cuyo libro de órdenes está desactualizado. El motor excluye entonces el candidato; no envía órdenes ni llama a Jev. Muestra una regla de rechazo, no una predicción de beneficio real.
+
 ## Jev, en option
 
 Les moteurs fonctionnent sans clé. Copier `.env.example` vers `.env`, définir `TYPESAFE_API_KEY`, puis démarrer avec :
