@@ -1,6 +1,6 @@
 {
   "name": "jev-contract-graph",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Conditional payoff proofs for prediction-market contracts with optional Jev semantic review.",
@@ -16,6 +16,7 @@
     "start": "node src/server.js",
     "test": "node --test test/*.test.js",
     "check": "node --check src/server.js && node --check public/app.js",
-    "eval": "node src/evaluate.js"
+    "eval": "node src/evaluate.js",
+    "demo:stale": "node examples/quote-sensitivity.mjs"
   }
 }
