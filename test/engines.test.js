@@ -60,3 +60,11 @@ test('arrondis conservateurs et aucune tolérance de remplissage artificielle',(
  d.markets[0].quotes.yes.asks=[{price:.49999951,size:1}];d.markets[1].quotes.no.asks=[{price:.49999951,size:1}];
  const p=analyzeContracts(d).pairs[0];assert.equal(p.cost,1);assert.equal(p.netFloor,0);assert.equal(p.status,'no-edge');
 });
+
+
+test('la preuve de contrats équivalents exclut les deux états divergents',()=>{
+ const d=demo().contracts;d.markets=d.markets.slice(0,2);d.markets[1].normalized=structuredClone(d.markets[0].normalized);
+ for(const pair of analyzeContracts(d).pairs){
+  assert.deepEqual(pair.proof,[{narrow:0,broad:0,payout:1},{narrow:1,broad:1,payout:1}]);
+ }
+});

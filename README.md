@@ -75,3 +75,7 @@ Le jeu d’évaluation contient quatre cas synthétiques. L’option `--live` r�
 [MIT](LICENSE). Projet indépendant, sans affiliation revendiquée avec TypeSafe ou les fournisseurs de données.
 
 Projet compagnon : [jev-exposure-radar](https://github.com/gbesse/jev-exposure-radar).
+
+## Revue du 4 octobre 2026
+
+Les tables de preuve des contrats équivalents ne présentent désormais que les deux états possibles (tous deux faux ou tous deux vrais), chacun payant 1 USD par paire. Le plancher calculé reste inchangé. Une cible HTTP malformée reçoit une erreur 400 sans arrêter le serveur local. Les 25 tests hors ligne, le plan d’évaluation et l’exemple de carnets périmés passent ; aucun nouvel appel Jev n’a été nécessaire pour ces corrections.

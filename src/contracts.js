@@ -60,7 +60,7 @@ export function analyzeContracts(input) {
     if (!directions.length) { pairs.push({ a:a.id, b:b.id, relation:rel, status:'excluded' }); continue; }
     for (const [narrow,broad] of directions) {
       const base = { a:a.id, b:b.id, relation:rel, legs:[{market:broad.id,side:'YES'},{market:narrow.id,side:'NO'}], quantity,
-        proof:[{narrow:0,broad:0,payout:1},{narrow:0,broad:1,payout:2},{narrow:1,broad:1,payout:1}],
+        proof:[{narrow:0,broad:0,payout:1},...(rel.kind==='equivalent'?[]:[{narrow:0,broad:1,payout:2}]),{narrow:1,broad:1,payout:1}],
         excludedState:{narrow:1,broad:0,reason:'Impossible uniquement si la normalisation et les clauses sont correctes.'},
         assumptions:['Contrats binaires réglés conformément aux clauses revues.', 'Les deux jambes sont entièrement exécutées aux prix simulés.', 'Frais proportionnels et marge de glissement définis par l’utilisateur ; barème réel non vérifié.'],
         evidence:[a.reviewEvidence,b.reviewEvidence] };
