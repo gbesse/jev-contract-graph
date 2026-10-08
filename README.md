@@ -79,3 +79,11 @@ Projet compagnon : [jev-exposure-radar](https://github.com/gbesse/jev-exposure-r
 ## Revue du 4 octobre 2026
 
 Les tables de preuve des contrats équivalents ne présentent désormais que les deux états possibles (tous deux faux ou tous deux vrais), chacun payant 1 USD par paire. Le plancher calculé reste inchangé. Une cible HTTP malformée reçoit une erreur 400 sans arrêter le serveur local. Les 25 tests hors ligne, le plan d’évaluation et l’exemple de carnets périmés passent ; aucun nouvel appel Jev n’a été nécessaire pour ces corrections.
+
+## October 2026 improvement · Amélioration d’octobre 2026 · Mejora de octubre de 2026
+
+Run `npm run demo:depth` to see how shallow synthetic order books remove an apparent candidate, despite an attractive best price. This is paper analysis only.
+
+Exécutez `npm run demo:depth` pour voir comment des carnets synthétiques peu profonds écartent un candidat apparent malgré un meilleur prix attrayant. Il s’agit uniquement d’une analyse sur papier.
+
+Ejecute `npm run demo:depth` para ver cómo libros de órdenes sintéticos poco profundos descartan un candidato aparente pese a un mejor precio atractivo. Es solo un análisis teórico.
