@@ -87,3 +87,7 @@ Run `npm run demo:depth` to see how shallow synthetic order books remove an appa
 Exécutez `npm run demo:depth` pour voir comment des carnets synthétiques peu profonds écartent un candidat apparent malgré un meilleur prix attrayant. Il s’agit uniquement d’une analyse sur papier.
 
 Ejecute `npm run demo:depth` para ver cómo libros de órdenes sintéticos poco profundos descartan un candidato aparente pese a un mejor precio atractivo. Es solo un análisis teórico.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Français : essayer un cas concret](examples/adoption-check.md) · [English: try a concrete case](examples/adoption-check.md) · [Español: pruebe un caso concreto](examples/adoption-check.md).
