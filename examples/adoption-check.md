@@ -40,3 +40,15 @@ FR : adaptez une copie de la fixture locale à cette situation, puis vérifiez l
 EN: adapt a copy of the local fixture to this situation, then check the behavior described above. Values are illustrative, not measured Jev output.
 
 ES: adapte una copia de la fixture local a esta situación y compruebe el comportamiento descrito arriba. Los valores son ilustrativos, no resultados Jev medidos.
+
+## Second cas · Second case · Segundo caso
+
+```text
+quote_age_seconds=120; max_age_seconds=30
+```
+
+**FR :** Un carnet périmé ne permet pas de conclure à un prix exécutable. Rafraîchissez les deux jambes avant de comparer les preuves de payoff.
+
+**EN:** A stale order book cannot establish an executable price. Refresh both legs before comparing payoff proofs.
+
+**ES:** Un libro de órdenes obsoleto no establece un precio ejecutable. Actualice ambas partes antes de comparar las pruebas de pago.
